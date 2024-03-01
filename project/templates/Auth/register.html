@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+{% block title %}Signup{% endblock title %}
+
+{% block css %}
+    <!-- Assuming 'assets' is in your STATICFILES_DIRS or defined in STATICFILES_DIRS -->
+    
+{% endblock css %}
+
+
+{% block body %}
+<div class="container">
+    <div class="col-md-12">
+        <section class="get-in-touch">
+            <h1 class="title">Signup</h1>
+            <form class="contact-form row">
+                <div class="form-field col-lg-12">
+                   <input id="email" class="input-text js-input" type="email" required>
+                   <label class="label" for="email">Email</label>
+                </div>
+               <div class="form-field col-lg-6">
+                  <input id="password" class="input-text js-input" type="text" required>
+                  <label class="label" for="password">Password</label>
+               </div>
+               <div class="form-field col-lg-6 ">
+                  <input id="cpassword" class="input-text js-input" type="text" required>
+                  <label class="label" for="cpassword">Confirm password</label>
+               </div>
+               <p>Already account? <a href="/auth/login">Login</a></p>
+               <div class="form-field col-lg-12">
+                  <input class="submit-btn form-control" type="submit" value="Signup">
+               </div>
+            </form>
+         </section>
+    </div>
+</div>
+{% endblock body %}
+
+

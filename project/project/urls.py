@@ -19,5 +19,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('app.urls'))
+    path('',include('app.urls')),
+    # it's mean that, if urls conatin auth in first, it should target Auth app urls.py file
+    path('auth/',include('Auth.urls'))
 ]
