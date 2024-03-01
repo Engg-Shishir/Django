@@ -5,3 +5,4 @@
 + make a vertual environment : `python -m venv venv`
 + Activate virtual environment : `venv\Scripts\activate`
 + Install Django : `pip install django`
++ Create a django project : `django-admin startproject app`
