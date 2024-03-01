@@ -1,3 +1,4 @@
+## Initial Project
 + Create a folder(anywhere you want)
 + open folder in vscode editor
 + open terminal 
@@ -62,3 +63,7 @@
         ]
         ```
     + Close & rerun server again. Your index.html file should see in the browser successfully
+
+
+## Authentication process
++ Create seperate app(Auth) inside project : `django-admin startapp Auth`.Make sure your `venv` is activated
