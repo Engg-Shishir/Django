@@ -1,3 +1,18 @@
+
+<br>
+<p align="center"> 
+<img src="https://i.postimg.cc/HsVm4RGW/Screenshot-1-removebg-preview-2.png"  />
+
+</p>
+<span>🚀 Django Step-by-Step Learning Repository  Welcome to the ultimate guide for mastering Django! This repository is designed to take you through Django's intricacies step by step, making the learning process smooth and enjoyable.</span>
+<p align="center" style="margin-top:-10px">
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Engg-Shishir/Django">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Engg-Shishir/Django">
+<img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30px" style="margin-top:10px;">
+<img src="https://custom-icon-badges.demolab.com/badge/Django-860043?logo=Djangol&logoColor=white" /> 
+</p>
+
+
 ## Initial Project
 + Create a folder(anywhere you want)
 + open folder in vscode editor
@@ -67,3 +82,12 @@
 
 ## Authentication process
 + Create seperate app(Auth) inside project : `django-admin startapp Auth`.Make sure your `venv` is activated
+
+
+
+
+<br>
+<div style="background-color:#dc3545; padding:10px">
+Here you can find Django's step-by-step working procedure.
+If it helps you, you should give me a star
+</div>
