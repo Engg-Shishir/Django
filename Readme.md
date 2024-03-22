@@ -127,6 +127,9 @@
 + Run : `pip install mysqlclient` This command confirm your database settings
 
 
++ Go to project & run : `python manage.py migrate`. This command create, default django table inside database. 
+
+
 
 
 <br>
