@@ -81,13 +81,56 @@
 
 
 ## Authentication process
-+ Create seperate app(Auth) inside project : `django-admin startapp Auth`.Make sure your `venv` is activated
++ Create seperate app(Auth) inside project : `django-admin startapp Auth`. Make sure your `venv` is activated
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Connect Django project with Mysql
++ install Xampp
++ Go to project `settings.py` and make database configuration as like bellow
+```python
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME' : 'travel', # Database name
+            'USER' : 'root', # Database user name 
+            'PASSWORD': '', # Database password 
+            'HOST': 'localhost',
+            'PORT': '3306' # Mysql port number
+        }
+    }
+```
++ Run : `pip install mysqlclient` This command confirm your database settings
 
 
 
 
 <br>
-<div style="background-color:#dc3545; padding:10px">
+<div style="background-color:#dc3545; padding:10px; text-align: center; font-weight: bold;">
 Here you can find Django's step-by-step working procedure.
 If it helps you, you should give me a star
 </div>
