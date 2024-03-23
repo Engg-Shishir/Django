@@ -1,13 +1,17 @@
 
 {% extends "base.html" %}
-{% block title %}Home{% endblock title %}
+{% block title %}{{ data.0.name }}{% endblock title %}
 
 {% block body %}
 
-<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+<section id="hero" style="background-image:url({{ MEDIA_URL }}{{ data.0.bg_image }})" class="d-flex flex-column justify-content-center align-items-center">
   <div class="hero-container" data-aos="fade-in">
-    <h1>Alex Smith</h1>
-    <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+    {% if data %}
+      <h1>{{ data.0.name }}</h1>
+    {% else %}
+      <h1>Bangladesh</h1>
+    {% endif %}
+    <p>I'm <span class="typed" data-typed-items="{{ data.0.designation }}"></span></p>
   </div>
 </section>
 

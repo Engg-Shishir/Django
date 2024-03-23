@@ -41,14 +41,29 @@
       <div class="d-flex flex-column">
 
         <div class="profile">
-          <img src="{% static 'assets/img/profile-img.jpg'%}" alt="" class="img-fluid rounded-circle">
+          <img src="{{ MEDIA_URL }}/{{ data.0.image }}" alt="" class="img-fluid rounded-circle">
           <h1 class="text-light"><a href="index.html">Shishir Bhiyan</a></h1>
           <div class="social-links mt-3 text-center">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+   
+              {% for social in data.0.socials.all %}
+
+                {% if social.linkedin %}
+                  <a href="{{ social.linkedin }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                {% endif %}
+
+                {% if social.twiter %}
+                  <a href="{{ social.twiter }}" class="twitter"><i class="bx bxl-twitter"></i></a>
+                {% endif %}
+                
+                {% if social.facebook %}
+                  <a href="{{ social.facebook }}" class="facebook"><i class="bx bxl-facebook"></i></a>
+                {% endif %}
+
+                {% if social.instagram %}
+                  <a href="{{ social.instagram }}" class="instagram"><i class="bx bxl-instagram"></i></a>
+                {% endif %}
+
+              {% endfor %}
           </div>
         </div>
 

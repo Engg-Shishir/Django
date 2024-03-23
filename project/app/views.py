@@ -1,7 +1,10 @@
 from django.shortcuts import render
+
+from .models import Author
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    authors_with_social = Author.objects.prefetch_related('socials').all()
+    return render(request,'index.html',{'data':authors_with_social})
 
 def about(request):
     return render(request,'about.html')
