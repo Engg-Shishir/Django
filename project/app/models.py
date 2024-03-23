@@ -52,3 +52,59 @@ class Social(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='socials')
     def __int__(self):
         return self.id
+    
+class Projects(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(max_length=200)
+    image = models.CharField(max_length=100)
+    link = models.CharField(max_length=200)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='projects')
+
+
+class Testimonials(models.Model):
+    text   = models.TextField(max_length=200)
+    name   = models.CharField(max_length=100)
+    image  = models.CharField(max_length=100)
+    title  = models.CharField(max_length=100)
+    recomendation   = models.TextField(max_length=200)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='testimonials')
+
+
+class Abouts(models.Model):
+    text   = models.TextField(max_length=200)
+    position   = models.CharField(max_length=100)
+    birth  = models.CharField(max_length=100)
+    phone  = models.CharField(max_length=100)
+    city  = models.CharField(max_length=100)
+    city  = models.CharField(max_length=100)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='abouts')
+
+class Educations(models.Model):
+    degree = models.CharField(max_length=100)
+    institution  = models.CharField(max_length=100)
+    duaration  = models.CharField(max_length=50)
+    website  = models.CharField(max_length=100)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='education')
+
+class Experiances(models.Model):
+    role = models.CharField(max_length=100, null=True)
+    company  = models.CharField(max_length=100, null=True)
+    duaration  = models.CharField(max_length=50, null=True)
+    website  = models.CharField(max_length=100, null=True)
+    work   = models.TextField(max_length=400, null=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='experiance')
+
+class Services(models.Model):
+    icon = models.CharField(max_length=100, null=True)
+    name  = models.CharField(max_length=100, null=True)
+    description  = models.TextField(max_length=300, null=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='services')
+
+
+class Contact(models.Model):
+    text = models.CharField(max_length=200, null=True)
+    location = models.CharField(max_length=100, null=True)
+    email  = models.CharField(max_length=50, null=True)
+    phone  = models.CharField(max_length=50, null=True)
+    map  = models.CharField(max_length=300, null=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='contacts')
