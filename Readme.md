@@ -129,6 +129,8 @@
 
 + Go to project & run : `python manage.py migrate`. This command create, default django table inside database. 
 
++ Create models to create custom table inside database.You should register models inside `app/admin.py`. Also add some settings in `settings.py`. Then run 2 commands : `python manage.py makemigrations`, `python manage.py migrate`
+
 
 
 
