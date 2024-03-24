@@ -41,8 +41,19 @@
 
       </div>
 
-      <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+      <div class="col-lg-7 mt-5 mt-lg-0">
+        
+        {% if message %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endif %}
+        
+        <form action="{% url 'save' %}" method="post" role="form" class="php-email-form">
+          {% csrf_token %}
           <div class="row">
             <div class="form-group col-md-6">
               <label for="name">Your Name</label>

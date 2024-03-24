@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Abouts, Author, Contact, Educations, Experiances, Projects, Services, Social, Testimonials
+from .models import Abouts, Author, Contact, Educations, Experiances, Projects, Services, Social, Testimonials,Message
 
 # Register your models here.
 admin.site.register(Author)
@@ -12,3 +12,4 @@ admin.site.register(Educations)
 admin.site.register(Experiances)
 admin.site.register(Services)
 admin.site.register(Contact)
+admin.site.register(Message)

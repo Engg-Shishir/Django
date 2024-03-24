@@ -19,6 +19,21 @@ def bg_image_path(instance, filename):
     _, ext = os.path.splitext(filename)
     return f'AuthorBg/{instance.username}{ext}'
 
+def services_icon(instance, filename):
+    # Use the username as the filename
+    _, ext = os.path.splitext(filename)
+    return f'ServicesIcon/{instance.name}{ext}'
+
+def projects(instance, filename):
+    # Use the username as the filename
+    _, ext = os.path.splitext(filename)
+    return f'Projects/{instance.name}{ext}'
+
+def Tetimonials(instance, filename):
+    # Use the username as the filename
+    _, ext = os.path.splitext(filename)
+    return f'Tetimonials/{instance.name}{ext}'
+
 class Author(models.Model):
     username = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
@@ -56,22 +71,38 @@ class Social(models.Model):
 class Projects(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=200)
-    image = models.CharField(max_length=100)
+    image = models.FileField(
+        upload_to=projects,
+        null=True,
+        validators=[
+            FileExtensionValidator(allowed_extensions=['png', 'jpg','svg']),
+            validate_file_size
+        ]
+    )
     link = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='projects')
+    def __str__(self):
+        return self.name
 
 
 class Testimonials(models.Model):
-    text   = models.TextField(max_length=200)
     name   = models.CharField(max_length=100)
-    image  = models.CharField(max_length=100)
+    image = models.FileField(
+        upload_to=Tetimonials,
+        null=True,
+        validators=[
+            FileExtensionValidator(allowed_extensions=['png', 'jpg','svg']),
+            validate_file_size
+        ]
+    )
     title  = models.CharField(max_length=100)
     recomendation   = models.TextField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='testimonials')
-
+    def __str__(self):
+        return self.name
 
 class Abouts(models.Model):
-    text   = models.TextField(max_length=200)
+    text   = models.TextField(max_length=700)
     position   = models.CharField(max_length=100)
     birth  = models.CharField(max_length=100)
     phone  = models.CharField(max_length=100)
@@ -95,16 +126,31 @@ class Experiances(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='experiance')
 
 class Services(models.Model):
-    icon = models.CharField(max_length=100, null=True)
+    icon = models.FileField(
+        upload_to=services_icon,
+        null=True,
+        validators=[
+            FileExtensionValidator(allowed_extensions=['png', 'jpg','svg']),
+            validate_file_size
+        ]
+    )
     name  = models.CharField(max_length=100, null=True)
     description  = models.TextField(max_length=300, null=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='services')
+    def __str__(self):
+        return self.name
 
 
 class Contact(models.Model):
-    text = models.CharField(max_length=200, null=True)
+    text = models.TextField(max_length=700, null=True)
     location = models.CharField(max_length=100, null=True)
     email  = models.CharField(max_length=50, null=True)
     phone  = models.CharField(max_length=50, null=True)
-    map  = models.CharField(max_length=300, null=True)
+    map  = models.TextField(max_length=700, null=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='contacts')
+
+class Message(models.Model):
+    name = models.CharField(max_length=50, null=True)
+    email = models.CharField(max_length=100, null=True)
+    subject = models.CharField(max_length=200, null=True)
+    msg = models.TextField(max_length=500, null=True)
